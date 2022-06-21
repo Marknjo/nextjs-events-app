@@ -1,6 +1,7 @@
 // import Image from "next/image";
 import Link from "next/link";
 import { EventsModel } from "../../data/dummy-data";
+import Button from "../ui/Button";
 import styles from "./EventItem.module.css";
 
 interface props extends EventsModel {}
@@ -17,6 +18,7 @@ const EventItem = ({ location, id, image, date, title }: props) => {
   const eventsPage = `/events/${id}`;
 
   return (
+    /// @TODO: Implemet icons for time, address and button elements
     <article className={styles.item}>
       <img src={image} alt={title}></img>
       <div className={styles.content}>
@@ -31,8 +33,10 @@ const EventItem = ({ location, id, image, date, title }: props) => {
         </div>
 
         <div className={styles.actions}>
-          {/* @TODO: Design a Button element */}
-          <Link href={eventsPage}>Explore More</Link>
+          <Button link={eventsPage}>
+            <span>Explore More</span>
+            <span className={styles.icon}>i</span>
+          </Button>
         </div>
       </div>
     </article>
