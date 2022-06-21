@@ -7,7 +7,7 @@ const FeaturedEventsPage: NextPage = () => {
 
   return (
     <>
-      <h1>Featured Events</h1>
+      <h1 className='centered'>Featured Events</h1>
       <EventList events={events} />
     </>
   );

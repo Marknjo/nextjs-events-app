@@ -37,6 +37,7 @@ export class EventsModel {
     public title: string,
     public description: string,
     public location: string,
+    public date: string,
     public image: string,
     public isFeatured: boolean
   ) {}
