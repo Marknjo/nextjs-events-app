@@ -1,0 +1,13 @@
+.main-heading {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.main-heading h1 {
+    font-size: 1.6rem;
+    letter-spacing: 2px;
+    display: inline-block;
+    border-bottom: 4px solid #94fdfd;
+    padding: 0 2rem;
+    padding-bottom: 0.5rem;
+  }
