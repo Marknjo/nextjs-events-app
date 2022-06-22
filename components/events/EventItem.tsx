@@ -13,7 +13,7 @@ const EventItem = ({ location, id, image, date, title }: props) => {
     year: "numeric",
   });
 
-  const locationStr = location.replace(",", "\n");
+  const locationStr = location.replace(", ", "\n");
 
   const eventsPage = `/events/${id}`;
 

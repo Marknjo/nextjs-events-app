@@ -18,12 +18,16 @@ const Button = ({ className, type, link, onClick, children }: props) => {
       </Link>
     );
   }
+
+  let buttonData = {
+    type: (type ? type : "button") as ButtonAttributes,
+    className: definedClassName,
+    ...(onClick ? { onClick } : {}),
+  };
+
   return (
-    <button
-      type={type ? type : "button"}
-      onClick={onClick ? onClick : () => {}}
-      className={definedClassName}>
-      {children}
+    <button {...buttonData}>
+      <>{children}</>
     </button>
   );
 };
