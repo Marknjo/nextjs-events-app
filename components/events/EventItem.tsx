@@ -1,6 +1,9 @@
 // import Image from "next/image";
 import Link from "next/link";
 import { EventsModel } from "../../data/dummy-data";
+import AddressIcon from "../icons/AddressIcon";
+import ArrowRightIcon from "../icons/ArrowRightIcon";
+import DateIcon from "../icons/DateIcon";
 import Button from "../ui/Button";
 import styles from "./EventItem.module.css";
 
@@ -25,9 +28,11 @@ const EventItem = ({ location, id, image, date, title }: props) => {
         <div className={styles.summary}>
           <h2>{title}</h2>
           <div className={styles.date}>
+            <DateIcon />
             <time>{transformedDate}</time>
           </div>
           <div className={styles.address}>
+            <AddressIcon />
             <address>{locationStr}</address>
           </div>
         </div>
@@ -35,7 +40,9 @@ const EventItem = ({ location, id, image, date, title }: props) => {
         <div className={styles.actions}>
           <Button link={eventsPage}>
             <span>Explore More</span>
-            <span className={styles.icon}>i</span>
+            <span className={styles.icon}>
+              <ArrowRightIcon />
+            </span>
           </Button>
         </div>
       </div>
