@@ -1,5 +1,4 @@
-// import Image from "next/image";
-import Link from "next/link";
+import Image from "next/image";
 import { EventsModel } from "../../data/dummy-data";
 import AddressIcon from "../icons/AddressIcon";
 import ArrowRightIcon from "../icons/ArrowRightIcon";
@@ -21,9 +20,8 @@ const EventItem = ({ location, id, image, date, title }: props) => {
   const eventsPage = `/events/${id}`;
 
   return (
-    /// @TODO: Implemet icons for time, address and button elements
     <article className={styles.item}>
-      <img src={image} alt={title}></img>
+      <Image src={`/${image}`} alt={title} width={240} height={220} priority />
       <div className={styles.content}>
         <div className={styles.summary}>
           <h2>{title}</h2>
