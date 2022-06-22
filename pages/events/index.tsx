@@ -1,12 +1,14 @@
 import type { NextPage } from "next";
+import EventList from "../../components/events/EventList";
+import { getAllEvents } from "../../data/dummy-data";
 
 const AllEventsPage: NextPage = () => {
+  const events = getAllEvents();
+
   return (
-    <div>
-      <section className='main-heading'>
-        <h1>View All Events</h1>
-      </section>
-    </div>
+    <>
+      <EventList events={events} />
+    </>
   );
 };
 
