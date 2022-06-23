@@ -1,6 +1,8 @@
+import { join } from "path";
 import { EventsModel } from "./dummy-data";
 
 const eventStore: EventsModel[] = [];
+const URL = "http://localhost:3000";
 
 export async function findFeaturedEvents() {
   const eventsData = await findAllEvents();
@@ -8,7 +10,11 @@ export async function findFeaturedEvents() {
 }
 
 export async function findAllEvents(): Promise<EventsModel[]> {
-  const response = await fetch("./data.json");
+  const dataUrl = join(process.cwd(), "data", "data.json");
+
+  console.log({ dataUrl });
+
+  const response = await fetch(`${URL}/data/data.json`);
 
   const eventsData = await response.json();
 

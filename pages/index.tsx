@@ -1,11 +1,12 @@
-import type { NextPage } from "next";
+import type { GetStaticProps, NextPage } from "next";
 import EventList from "../components/events/EventList";
 import MainHeading from "../components/ui/MainHeading";
-import { getFeaturedEvents } from "../data/dummy-data";
+import { findAllEvents } from "../data/data-utils";
+import { EventsModel } from "../data/dummy-data";
 
-const FeaturedEventsPage: NextPage = () => {
-  const events = getFeaturedEvents();
-
+const FeaturedEventsPage: NextPage<{ events: EventsModel[] | [] }> = ({
+  events,
+}) => {
   return (
     <>
       <MainHeading>
@@ -17,3 +18,13 @@ const FeaturedEventsPage: NextPage = () => {
 };
 
 export default FeaturedEventsPage;
+
+export const getStaticProps: GetStaticProps = async () => {
+  const foundEvents = await findAllEvents();
+
+  return {
+    props: {
+      events: foundEvents,
+    },
+  };
+};
