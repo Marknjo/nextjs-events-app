@@ -1,4 +1,3 @@
-import { join } from "path";
 import { EventsModel } from "./dummy-data";
 
 const eventStore: EventsModel[] = [];
@@ -35,7 +34,7 @@ export async function findEventsByDateAndMonth(dateFilter: {
   return filteredEvents;
 }
 
-export async function getEventById(id: string) {
+export async function findEventById(id: string) {
   const eventsData = await findAllEvents();
 
   return eventsData.find((event) => event.id === id);
