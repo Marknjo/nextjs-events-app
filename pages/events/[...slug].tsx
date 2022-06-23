@@ -1,6 +1,7 @@
 import type { NextPage } from "next";
 import { useRouter } from "next/router";
 import EventList from "../../components/events/EventList";
+import ErrorAlert from "../../components/ui/ErrorAlert";
 import ResultsTitle from "../../components/ui/ResultsTitle";
 import { getFilteredEvents } from "../../data/dummy-data";
 
@@ -11,10 +12,9 @@ const FilteredEventsPage: NextPage = () => {
 
   if (!slug) {
     return (
-      <p>
-        Invalid search query. Please provide a valid url as /events/yyyy/mm
-        format.
-      </p>
+      <ErrorAlert>
+        <p>Loading...</p>
+      </ErrorAlert>
     );
   }
 
@@ -22,10 +22,12 @@ const FilteredEventsPage: NextPage = () => {
 
   if (!year || !month) {
     return (
-      <p>
-        Year or month missing in the url. Please provide a valid url as
-        /events/yyyy/mm format.
-      </p>
+      <ErrorAlert>
+        <p>
+          Year or month missing in the url. Please provide a valid url as
+          /events/yyyy/mm format.
+        </p>
+      </ErrorAlert>
     );
   }
 
@@ -44,10 +46,12 @@ const FilteredEventsPage: NextPage = () => {
     numMonth < 1
   ) {
     return (
-      <p>
-        Invalid search creteria. Ensure year is a number between 2021 and 2031,
-        while your month is a number between 1 and 12
-      </p>
+      <ErrorAlert>
+        <p>
+          Invalid search creteria. Ensure year is a number between 2021 and
+          2031, while your month is a number between 1 and 12
+        </p>
+      </ErrorAlert>
     );
   }
 
