@@ -14,7 +14,7 @@ function ResultsTitle(props: { date: Date; foundEvents: number }) {
       <h1>
         Found {props.foundEvents} events in {humanReadableDate}
       </h1>
-      <Button link='/events'>Show all events</Button>
+      <Button link='/events'>Browse all events</Button>
     </section>
   );
 }

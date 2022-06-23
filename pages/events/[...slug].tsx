@@ -1,44 +1,20 @@
 import type { NextPage } from "next";
 import { useRouter } from "next/router";
-import { useMemo } from "react";
 import EventList from "../../components/events/EventList";
-import Button from "../../components/ui/Button";
-import MainHeading from "../../components/ui/MainHeading";
 import ResultsTitle from "../../components/ui/ResultsTitle";
 import { getFilteredEvents } from "../../data/dummy-data";
 
 const FilteredEventsPage: NextPage = () => {
-  const headingContent = <MainHeading>Events Search results</MainHeading>;
   const router = useRouter();
-  const monthsName = useMemo(
-    () => [
-      "January",
-      "February",
-      "march",
-      "April",
-      "May",
-      "June",
-      "July",
-      "August",
-      "September",
-      "October",
-      "November",
-      "December",
-    ],
-    []
-  );
 
   const slug = router.query.slug;
 
   if (!slug) {
     return (
-      <>
-        {headingContent}
-        <p>
-          Invalid search query. Please provide a valid url as /events/yyyy/mm
-          format.
-        </p>
-      </>
+      <p>
+        Invalid search query. Please provide a valid url as /events/yyyy/mm
+        format.
+      </p>
     );
   }
 
@@ -46,13 +22,10 @@ const FilteredEventsPage: NextPage = () => {
 
   if (!year || !month) {
     return (
-      <>
-        {headingContent}
-        <p>
-          Year or month missing in the url. Please provide a valid url as
-          /events/yyyy/mm format.
-        </p>
-      </>
+      <p>
+        Year or month missing in the url. Please provide a valid url as
+        /events/yyyy/mm format.
+      </p>
     );
   }
 
@@ -71,13 +44,10 @@ const FilteredEventsPage: NextPage = () => {
     numMonth < 1
   ) {
     return (
-      <>
-        {headingContent}
-        <p>
-          Invalid search creteria. Ensure year is a number between 2021 and
-          2031, while your month is a number between 1 and 12
-        </p>
-      </>
+      <p>
+        Invalid search creteria. Ensure year is a number between 2021 and 2031,
+        while your month is a number between 1 and 12
+      </p>
     );
   }
 

@@ -32,7 +32,9 @@ const AllEventsPage: NextPage = () => {
 
   return (
     <>
-      <MainHeading>View All Events</MainHeading>
+      <MainHeading>
+        <h1>View All Events</h1>
+      </MainHeading>
       <EventsSearchForm onSearch={searEventsHandler} />
       <EventList events={events} />
     </>

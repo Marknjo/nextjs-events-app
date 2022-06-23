@@ -12,7 +12,9 @@ const FeaturedEventsPage: NextPage = () => {
         <h1>Featured Events</h1>
       </section> */}
 
-      <MainHeading>Featured Events</MainHeading>
+      <MainHeading>
+        <h1>Featured Events</h1>
+      </MainHeading>
       <EventList events={events} />
     </>
   );
