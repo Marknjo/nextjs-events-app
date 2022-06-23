@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 import { useState } from "react";
 import EventList from "../../components/events/EventList";
 import EventsSearchForm from "../../components/events/EventsSearchForm";
+import MainHeading from "../../components/ui/MainHeading";
 import { getAllEvents } from "../../data/dummy-data";
 
 const AllEventsPage: NextPage = () => {
@@ -25,8 +26,13 @@ const AllEventsPage: NextPage = () => {
     }
   };
 
+  if (searchHasError) {
+    // @TODO: show modal with error message
+  }
+
   return (
     <>
+      <MainHeading>View All Events</MainHeading>
       <EventsSearchForm onSearch={searEventsHandler} />
       <EventList events={events} />
     </>
