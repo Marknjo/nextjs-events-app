@@ -10,10 +10,6 @@ export async function findFeaturedEvents() {
 }
 
 export async function findAllEvents(): Promise<EventsModel[]> {
-  const dataUrl = join(process.cwd(), "data", "data.json");
-
-  console.log({ dataUrl });
-
   const response = await fetch(`${URL}/data/data.json`);
 
   const eventsData = await response.json();

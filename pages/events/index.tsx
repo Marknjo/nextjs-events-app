@@ -1,14 +1,16 @@
-import type { NextPage } from "next";
+import type { GetStaticProps, NextPage } from "next";
 import { useRouter } from "next/router";
 import { useState } from "react";
 import EventList from "../../components/events/EventList";
 import EventsSearchForm from "../../components/events/EventsSearchForm";
 import ErrorAlert from "../../components/ui/ErrorAlert";
 import MainHeading from "../../components/ui/MainHeading";
-import { getAllEvents } from "../../data/dummy-data";
+import { findAllEvents } from "../../data/data-utils";
+import { EventsModel } from "../../data/dummy-data";
 
-const AllEventsPage: NextPage = () => {
-  const events = getAllEvents();
+const AllEventsPage: NextPage<{ events: EventsModel[] | [] }> = ({
+  events,
+}) => {
   const [searchHasError, setSearchHasError] = useState<boolean>(false);
   const router = useRouter();
 
@@ -47,3 +49,13 @@ const AllEventsPage: NextPage = () => {
 };
 
 export default AllEventsPage;
+
+export const getStaticProps: GetStaticProps = async () => {
+  const foundEvents = await findAllEvents();
+
+  return {
+    props: {
+      events: foundEvents,
+    },
+  };
+};
