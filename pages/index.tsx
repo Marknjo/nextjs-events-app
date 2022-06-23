@@ -8,10 +8,6 @@ const FeaturedEventsPage: NextPage = () => {
 
   return (
     <>
-      {/* <section className='main-heading'>
-        <h1>Featured Events</h1>
-      </section> */}
-
       <MainHeading>
         <h1>Featured Events</h1>
       </MainHeading>
