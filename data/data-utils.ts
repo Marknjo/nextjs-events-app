@@ -33,6 +33,7 @@ export async function findEventsByDateAndMonth(dateFilter: {
 
   let filteredEvents = eventsData.filter((event) => {
     const eventDate = new Date(event.date);
+
     return (
       eventDate.getFullYear() === year && eventDate.getMonth() === month - 1
     );
