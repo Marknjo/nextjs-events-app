@@ -1,19 +1,26 @@
 import { EventsModel } from "./dummy-data";
 
 const eventStore: EventsModel[] = [];
-const URL = "http://localhost:3000";
+const eventsAPIRespose = "http://localhost:3000/api/events";
 
 export async function findFeaturedEvents() {
   const eventsData = await findAllEvents();
   return eventsData.filter((event) => event.isFeatured);
 }
 
+/**
+ * Simulates API call in the server to get all data
+ * @returns returns a collection of data from data.json
+ */
 export async function findAllEvents(): Promise<EventsModel[]> {
-  const response = await fetch(`${URL}/data/data.json`);
+  const response = await fetch(eventsAPIRespose);
 
-  const eventsData = await response.json();
+  const eventsData: {
+    data: { content: string };
+    status: string;
+  } = await response.json();
 
-  return eventsData;
+  return JSON.parse(eventsData.data.content);
 }
 
 export async function findEventsByDateAndMonth(dateFilter: {
