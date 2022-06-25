@@ -1,7 +1,7 @@
 import type { GetStaticProps, NextPage } from "next";
 import EventList from "../components/events/EventList";
 import MainHeading from "../components/ui/MainHeading";
-import { findAllEvents } from "../data/data-utils";
+import { findFeaturedEvents } from "../data/data-utils";
 import { EventsModel } from "../data/dummy-data";
 
 const FeaturedEventsPage: NextPage<{ events: EventsModel[] | [] }> = ({
@@ -20,7 +20,7 @@ const FeaturedEventsPage: NextPage<{ events: EventsModel[] | [] }> = ({
 export default FeaturedEventsPage;
 
 export const getStaticProps: GetStaticProps = async () => {
-  const foundEvents = await findAllEvents();
+  const foundEvents = await findFeaturedEvents();
 
   return {
     props: {
